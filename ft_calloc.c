@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:38:30 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/28 00:05:20 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/26 22:40:22 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/28 00:00:53 by kkeskin          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	*ptr;
-	int	i;
-
-	ptr = (int *)ft_calloc(5, sizeof(int) * 5);
-	ft_memset(ptr, -5, 3);
+	void	*ptr;
+	size_t		i;
 
 	i = 0;
-	while (((char *)ptr)[i] != '\0')
+	ptr = (void *)malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	while (i < (size * nmemb))
 	{
-		ft_putchar_fd(((char *)ptr)[i], 1);
+		((unsigned char *)ptr)[i] = 0;
 		i++;
 	}
-	ft_putchar_fd('\n', 1);
-	return (0);
+	return (ptr);
 }

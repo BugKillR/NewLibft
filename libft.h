@@ -6,7 +6,7 @@
 /*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:33:01 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/25 02:55:14 by kkeskin          ###   ########.tr       */
+/*   Updated: 2025/05/28 00:01:26 by kkeskin          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		ft_atoi(const char *nptr);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 size_t	ft_strlen(const char *s);
 

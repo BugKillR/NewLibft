@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:38:30 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/28 00:05:20 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/26 22:31:09 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/27 20:39:04 by kkeskin          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	*ptr;
-	int	i;
-
-	ptr = (int *)ft_calloc(5, sizeof(int) * 5);
-	ft_memset(ptr, -5, 3);
+	size_t			i;
+	unsigned char	*convert;
 
 	i = 0;
-	while (((char *)ptr)[i] != '\0')
+	convert = (unsigned char *)s;
+	while (i < n)
 	{
-		ft_putchar_fd(((char *)ptr)[i], 1);
+		convert[i] = (unsigned char)c;
 		i++;
 	}
-	ft_putchar_fd('\n', 1);
-	return (0);
+	return (s);
 }

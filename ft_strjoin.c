@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:38:30 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/28 00:05:20 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/06/01 22:00:14 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/06/01 22:17:48 by kkeskin          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	*ptr;
-	int	i;
+	char	*newstr;
+	size_t		i;
+	size_t		k;
 
-	ptr = (int *)ft_calloc(5, sizeof(int) * 5);
-	ft_memset(ptr, -5, 3);
-
+	newstr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!newstr)
+		return (NULL);
 	i = 0;
-	while (((char *)ptr)[i] != '\0')
+	while (s1[i])
 	{
-		ft_putchar_fd(((char *)ptr)[i], 1);
+		newstr[i] = s1[i];
 		i++;
 	}
-	ft_putchar_fd('\n', 1);
-	return (0);
+	k = 0;
+	while (s2[k])
+	{
+		newstr[i + k] = s2[k];
+		k++;
+	}
+	newstr[i + k] = '\0';
+	return (newstr);
 }

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:38:30 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/28 00:05:20 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/06/01 20:16:32 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/06/01 22:03:45 by kkeskin          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	*ptr;
-	int	i;
+	char	*substr;
+	size_t		srclen;
+	size_t		i;
 
-	ptr = (int *)ft_calloc(5, sizeof(int) * 5);
-	ft_memset(ptr, -5, 3);
-
+	srclen = ft_strlen(s);
+	if (srclen - start < len)
+		len = srclen - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	while (((char *)ptr)[i] != '\0')
+	while (i < len)
 	{
-		ft_putchar_fd(((char *)ptr)[i], 1);
+		substr[i] = s[start + i];
 		i++;
 	}
-	ft_putchar_fd('\n', 1);
-	return (0);
+	substr[i] = '\0';
+	return (substr);
 }
