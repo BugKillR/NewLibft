@@ -27,9 +27,21 @@ SRCS = \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c
 
-OBJS = $(SRCS:.c=.o)
+BONUS = \
+	ft_lstadd_back_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstnew_bonus.c \
+	ft_lstsize_bonus.c 
+
+BONUS_OBJS = $(BONUS:.c=.o)
+OBJS = $(SRCS:.c=.o) 
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
@@ -45,6 +57,9 @@ fclean: clean
 re: fclean all
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
-.PHONY: all clean fclean reset
+bonus:	$(BONUS_OBJS)
+	ar -rcs $(NAME) $(BONUS_OBJS)
+
+.PHONY: all clean fclean re bonus

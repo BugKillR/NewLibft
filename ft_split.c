@@ -95,17 +95,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (split);
 }
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	arr[] = "Hello world i die.";
-	size_t	i = 0;
-
-	char	**split = ft_split(arr, ' ');
-
-	while (split[i])
-		printf("%s\n", split[i++]);
-	return (0);
-}
