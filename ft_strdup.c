@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:38:30 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/28 00:05:20 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/31 05:59:25 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/06/03 08:42:44 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+char	*ft_strdup(const char *s)
 {
-	int	*ptr;
-	int	i;
+	char	*p;
 
-	ptr = (int *)ft_calloc(5, sizeof(int) * 5);
-	ft_memset(ptr, -5, 3);
-
-	i = 0;
-	while (((char *)ptr)[i] != '\0')
-	{
-		ft_putchar_fd(((char *)ptr)[i], 1);
-		i++;
-	}
-	ft_putchar_fd('\n', 1);
-	return (0);
+	p = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!p)
+		return (NULL);
+	ft_memcpy(p, s, ft_strlen(s));
+	p[ft_strlen(s)] = '\0';
+	return (p);
 }

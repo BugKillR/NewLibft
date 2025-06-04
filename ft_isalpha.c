@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:30:42 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/21 20:32:38 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/26 15:04:46 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/26 16:47:36 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isalpha(int c)
 {
-	if ((64 <= c && c <= 90)
-		|| (97 <= c && c <= 122))
+	if ((65 <= c && c <= 90) || (97 <= c && c <= 122))
 		return (1);
 	return (0);
 }

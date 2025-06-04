@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 02:52:51 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/25 02:52:51 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/31 03:42:29 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/31 05:17:38 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (size == 0)
+		return (ft_strlen(src));
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] && i < size - 1)
 	{
-		dest[i] = src[i];
+		dst[i] = ((char *)src)[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

@@ -3,35 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 02:51:57 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/25 02:51:58 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/31 06:20:42 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/31 06:27:32 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
-	char	*num;
-	int		i;
-	int		sign;
-	int		res;
+	int	sign;
+	int	i;
+	int	res;
 
+	res = 0;
 	i = 0;
 	sign = 1;
-	res = 0;
-	num = (char *)nptr;
-	while (num[i] == ' ' || (9 <= num[i] && num[i] <= 13))
+	while (nptr[i] == ' ' || (9 <= nptr[i] && nptr[i] <= 13))
 		i++;
-	if (num[i] == '-' || num[i] == '+')
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (num[i] == '-')
+		if (nptr[i] == '-')
 			sign *= -1;
 		i++;
 	}
-	while ('0' <= num[i] && num[i] <= '9')
+	while ('0' <= nptr[i] && nptr[i] <= '9')
 	{
-		res = (res * 10) + (num[i] - '0');
+		res = (res * 10) + (nptr[i] - '0');
 		i++;
 	}
 	return (res * sign);

@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:31:07 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/05/21 20:31:07 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/05/26 16:53:53 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/05/26 16:54:31 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)

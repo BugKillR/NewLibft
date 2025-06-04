@@ -3,40 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkeskin <kkeskin@42istanbul.com.tr>        +#+  +:+       +#+        */
+/*   By: kkeskin <kkeskin@student.42istanbul.com.tr +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 22:18:01 by kkeskin           #+#    #+#             */
-/*   Updated: 2025/06/02 00:24:02 by kkeskin          ###   ########.tr       */
+/*   Created: 2025/06/02 10:54:49 by kkeskin           #+#    #+#             */
+/*   Updated: 2025/06/02 18:50:26 by kkeskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_getstart(char const *s1, char *start, char const *set)
-{
-	size_t		i;
-	size_t		k;
-
-	i = 0;
-        while(s1[i] && !start)
-        {
-                k = 0;
-                while (s1[i + k] == set[k])
-                {
-                        if (k == ft_strlen(set) - 1)
-                                start = &s1[i + k];
-                        k++;
-                }
-                i++;
-        }
-	
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*new;
-	char	*start;
-	char	*end;
+	size_t	start;
+	size_t	end;
+	size_t	s1_len;
+	char	*trimmed;
 
-	ft_getstart(s1, start, set);
+	if (!s1 || !set)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	start = 0;
+	end = s1_len;
+	if (ft_strncmp(s1, set, ft_strlen(set)) == 0)
+		start = ft_strlen(set);
+	if (s1_len >= ft_strlen(set)
+		&& ft_strncmp(s1 + s1_len - ft_strlen(set), set, ft_strlen(set)) == 0)
+		end = s1_len - ft_strlen(set);
+	trimmed = (char *)malloc(end - start + 1);
+	if (!trimmed)
+		return (NULL);
+	ft_strlcpy(trimmed, s1 + start, end - start + 1);
+	return (trimmed);
 }
